@@ -7,12 +7,14 @@ function readyNow() {
 } // ready now function
 
 class Employee {
-    constructor(firstName, LastName, ID, Title, AnnualSalary) {
+    constructor(firstName, LastName, ID, Title, AnnualSalary, monthlySalary) {
         this.firstName = firstName;
         this.LastName = LastName;
         this.ID = ID;
         this.Title = Title;
         this.AnnualSalary = AnnualSalary;
+        this.monthlySalary = (AnnualSalary/12);
+
 
     } // end constructor
 } // employee class
@@ -34,6 +36,7 @@ function addEmployee() {
     $('#titleIn').val('');
     $('#anualSalaryIn').val(''); // emptys 
     tableCreator(employees);
+    monthlyOutput(employees);
     
 } // end add employee 
 
@@ -42,9 +45,34 @@ function tableCreator(array){
     let el = $('.outputTable')
     el.empty();
     for (let iterator of employees) {
-        let monthlySalary = (iterator.AnnualSalary)/12
-        let display= `<tr> <td>${iterator.firstName}</td> <td>${iterator.LastName}</td> <td>${iterator.ID}</td> <td>${iterator.Title}</td> <td>${iterator.AnnualSalary}</td> <td>${monthlySalary}</td> <td><button>Delete</button></td> </tr>`;
+        let display= `<tr class=${iterator.ID}>
+         <td>${iterator.firstName}</td> 
+         <td>${iterator.LastName}</td>
+         <td>${iterator.ID}</td> 
+         <td>${iterator.Title}</td> 
+         <td>${iterator.AnnualSalary}</td>
+         <td>${iterator.monthlySalary}</td> 
+         <td><button class=${iterator.ID}>Delete</button></td>
+            </tr>`;
         el.append(display);
 
     }
+}
+
+
+function monthlyOutput( array ) {
+    let el = $('.totalMonthlyOutput')
+    el.empty();
+    totalMonthlyExpesnes = 0;
+    for (const iterator of employees) {
+      let monthlyEmployeeSalary  =iterator.monthlySalary;
+      totalMonthlyExpesnes  += monthlyEmployeeSalary;
+
+    }
+    el.append(totalMonthlyExpesnes);
+}
+
+
+function redcheck() {
+    if ()    
 }
