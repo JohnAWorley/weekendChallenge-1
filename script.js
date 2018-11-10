@@ -34,12 +34,17 @@ function addEmployee() {
     $('#titleIn').val('');
     $('#anualSalaryIn').val(''); // emptys 
     tableCreator(employees);
+    
 } // end add employee 
 
 
 function tableCreator(array){
-    let el = $()
-    for (const iterator of employees) {
-        
+    let el = $('.outputTable')
+    el.empty();
+    for (let iterator of employees) {
+        let monthlySalary = (iterator.AnnualSalary)/12
+        let display= `<tr> <td>${iterator.firstName}</td> <td>${iterator.LastName}</td> <td>${iterator.ID}</td> <td>${iterator.Title}</td> <td>${iterator.AnnualSalary}</td> <td>${monthlySalary}</td> <td><button>Delete</button></td> </tr>`;
+        el.append(display);
+
     }
 }
