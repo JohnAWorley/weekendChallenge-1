@@ -45,17 +45,19 @@ function tableCreator(array){
     let el = $('.outputTable')
     el.empty();
     for (let iterator of employees) {
-        let display= `<tr class=${iterator.ID}>
+        let display= `<tr class="${iterator.ID}">
          <td>${iterator.firstName}</td> 
          <td>${iterator.LastName}</td>
          <td>${iterator.ID}</td> 
          <td>${iterator.Title}</td> 
          <td>${iterator.AnnualSalary}</td>
          <td>${iterator.monthlySalary}</td> 
-         <td><button class=${iterator.ID}>Delete</button></td>
+         <td><button class="${iterator.ID}">Delete</button></td>
             </tr>`;
         el.append(display);
-
+        $(`.${iterator.ID}`).on('click', function() {$(`.${iterator.ID}`).remove();
+    }
+        );
     }
 }
 
@@ -69,10 +71,20 @@ function monthlyOutput( array ) {
       totalMonthlyExpesnes  += monthlyEmployeeSalary;
 
     }
+    redCheck(monthlyOutput);
+    
     el.append(totalMonthlyExpesnes);
+    
 }
 
-
-function redcheck() {
-    if ()    
+function redCheck() {
+    if(totalMonthlyExpesnes>20000){
+        $('.totalMonthlyOutput').css('background-color','red')
+    }
+    else{
+        console.log('all good ');
+        
+    }
+    
 }
+
