@@ -55,12 +55,23 @@ function tableCreator(array){
          <td><button class="${iterator.ID}">Delete</button></td>
             </tr>`;
         el.append(display);
-        $(`.${iterator.ID}`).on('click', function() {$(`.${iterator.ID}`).remove();
+    //     $(`.${iterator.ID}`).on('click', function() {$(`totalMonthlyExpesnes = (totalMonthlyExpesnes - .${iterator.monthlySalary})`)
+    // }
+    //     );
+        
+        $(`.${iterator.ID}`).on('click', function() {
+            $(`.${iterator.ID}`).remove();
+            employees.splice($(`.${iterator.ID}`),1);
+            monthlyOutput(employees);
+
     }
         );
+        
     }
+    
 }
 
+// let totalMonthlyExpesnes = 0;
 
 function monthlyOutput( array ) {
     let el = $('.totalMonthlyOutput')
@@ -74,6 +85,7 @@ function monthlyOutput( array ) {
     redCheck(monthlyOutput);
     
     el.append(totalMonthlyExpesnes);
+  
     
 }
 
@@ -86,5 +98,8 @@ function redCheck() {
         
     }
     
-}
+} // 
 
+function update(params) {
+    
+}
