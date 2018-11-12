@@ -61,7 +61,7 @@ function tableCreator(array){
         
         $(`.${iterator.ID}`).on('click', function() {
             $(`.${iterator.ID}`).remove();
-            employees.splice($(`.${iterator.ID}`),1);
+            employees.splice(employees.indexOf(iterator),1);
             monthlyOutput(employees);
 
     }
@@ -95,11 +95,8 @@ function redCheck() {
     }
     else{
         console.log('all good ');
-        
+        $('.totalMonthlyOutput').css('background-color','white')
     }
     
 } // 
 
-function update(params) {
-    
-}
