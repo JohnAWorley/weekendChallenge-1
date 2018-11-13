@@ -52,14 +52,14 @@ function tableCreator(array){
          <td>${iterator.Title}</td> 
          <td>${iterator.AnnualSalary}</td>
          <td>${iterator.monthlySalary}</td> 
-         <td><button class="${iterator.ID}">Delete</button></td>
+         <td><button id = "deleteNow"class="${iterator.ID}">Delete</button></td>
             </tr>`;
         el.append(display);
     //     $(`.${iterator.ID}`).on('click', function() {$(`totalMonthlyExpesnes = (totalMonthlyExpesnes - .${iterator.monthlySalary})`)
     // }
     //     );
         
-        $(`.${iterator.ID}`).on('click', function() {
+        $('#deleteNow').on('click', function() {
             $(`.${iterator.ID}`).remove();
             employees.splice(employees.indexOf(iterator),1);
             monthlyOutput(employees);
